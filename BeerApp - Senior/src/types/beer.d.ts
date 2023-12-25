@@ -19,4 +19,10 @@ interface Beer {
   street: string;
 }
 
-export type { Beer };
+type BeerListMetaData = {
+  total: number,
+  page: number,
+  per_page: number
+}
+
+export type { Beer, BeerListMetaData };

@@ -47,7 +47,7 @@ const Home = () => {
                 {savedList.map((beer, index) => (
                   <li key={index.toString()}>
                     <Checkbox />
-                    <Link component={RouterLink} to={`/beer/${beer.id}`}>
+                    <Link component={RouterLink} to={`/beers/${beer.id}`}>
                       {beer.name}
                     </Link>
                   </li>

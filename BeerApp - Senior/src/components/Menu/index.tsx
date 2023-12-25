@@ -43,7 +43,7 @@ export default function ResponsiveDrawer(props: Props) {
             </ListItemButton>
           </ListItem>
         </Link>
-        <Link component={RouterLink} to={`/beer`}>
+        <Link component={RouterLink} to={`/beers`}>
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemIcon>
