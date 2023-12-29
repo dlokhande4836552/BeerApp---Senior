@@ -21,6 +21,23 @@ const Beer = () => {
             <b>Type: </b> {beer?.brewery_type}
           </span>
         </main>
+        <main>
+          <span>
+            <b>Distillery address: </b> {beer?.address_1}, {beer?.country}, {beer?.postal_code}
+          </span>
+        </main>
+        <main>
+          <span>
+            <b>Contact no: </b> {beer?.phone}
+          </span>
+        </main>
+        <main>
+          <span>
+            {
+              beer?.website_url &&  <><b>Company website: </b> <a target='_blank' href={beer?.website_url}>{beer?.website_url}</a></>
+          }
+          </span>
+        </main>
       </section>
     </article>
   );

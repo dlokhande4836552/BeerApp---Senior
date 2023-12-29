@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
-import { fetchData } from './utils';
-import { Beer } from '../../types';
-import { Link as RouterLink } from 'react-router-dom';
-import { Button, Checkbox, Paper, TextField, Link } from '@mui/material';
-import styles from './Home.module.css';
+import { useEffect, useState } from "react";
+import { fetchData } from "./utils";
+import { Beer } from "../../types";
+import { Link as RouterLink } from "react-router-dom";
+import { Button, Checkbox, Paper, TextField, Link } from "@mui/material";
+import styles from "./Home.module.css";
 import FavBeers from "../../components/FavBeers/FavBeers";
 
 const Home = () => {
@@ -20,14 +20,14 @@ const Home = () => {
           <Paper>
             <div className={styles.listContainer}>
               <div className={styles.listHeader}>
-                <TextField label='Filter...' variant='outlined' />
-                <Button variant='contained'>Reload list</Button>
+                <TextField label="Filter..." variant="outlined" />
+                <Button variant="contained">Reload list</Button>
               </div>
               <ul className={styles.list}>
                 {beerList.map((beer, index) => (
                   <li key={index.toString()}>
                     <Checkbox />
-                    <Link component={RouterLink} to={`/beer/${beer.id}`}>
+                    <Link component={RouterLink} to={`/beers/${beer.id}`}>
                       {beer.name}
                     </Link>
                   </li>
@@ -36,7 +36,6 @@ const Home = () => {
             </div>
           </Paper>
           <FavBeers></FavBeers>
-
         </main>
       </section>
     </article>

@@ -1,18 +1,18 @@
 import styles from "../../views/Home/Home.module.css";
-import {Button, Checkbox, Link, Paper} from "@mui/material";
+import {Button, IconButton, Link, Paper} from "@mui/material";
 import {Link as RouterLink} from "react-router-dom";
-import {clearBeerLocalStorage, getExistingFavBeers} from "../../views/BeerList/utils";
 import {useBeerLocalStorage} from "../../hooks/useBeerLocalStorage";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function FavBeers() {
 
-    const {clearAllFavBeers} = useBeerLocalStorage();
+    const {clearAllFavBeers, getExistingFavBeers, removeBeerFromFavoriteList} = useBeerLocalStorage();
 
     return<Paper>
         <div className={styles.listContainer}>
             <div className={styles.listHeader}>
                 <h3>Favorite beers</h3>
-                <Button variant='contained' size='small' onClick={() => {
+                <Button disabled={getExistingFavBeers().length === 0} variant='contained' size='small' onClick={() => {
                     clearAllFavBeers();
                 }}>
                     Remove all items
@@ -20,10 +20,10 @@ export default function FavBeers() {
             </div>
             <ul className={styles.list}>
                 {getExistingFavBeers().map((beer, index) => <li key={index.toString()}>
-                        <Checkbox />
                         <Link component={RouterLink} to={`/beers/${beer}`}>
                             {beer.name}
                         </Link>
+                    <IconButton onClick={() => removeBeerFromFavoriteList(beer)}><DeleteIcon></DeleteIcon></IconButton>
                     </li>)}
                 {!getExistingFavBeers().length && <p>No saved items</p>}
             </ul>
