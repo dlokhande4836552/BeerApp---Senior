@@ -93,7 +93,7 @@ const BeerList = () => {
               </ListItemButton>
             ))}
           </List>
-          {getTotalListCount() &&
+          {getTotalListCount() && !isFilterOn() &&
               <BeerPagination total={getTotalListCount()} perPageCount={perPage} currentPage={currentPage} onPageChange={(value) => onPageChange(value)}></BeerPagination>
           }
         </main>
