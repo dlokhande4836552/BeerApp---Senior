@@ -33,7 +33,10 @@ const getExistingFavBeers = () => {
     }
 }
 
+const clearBeerLocalStorage = () => {
+    localStorage.removeItem('favBeers');
+}
 
 
 
-export { fetchBeerList, fetchBeerListMetaDataData, getExistingFavBeers};
+export { fetchBeerList, fetchBeerListMetaDataData, getExistingFavBeers,clearBeerLocalStorage};

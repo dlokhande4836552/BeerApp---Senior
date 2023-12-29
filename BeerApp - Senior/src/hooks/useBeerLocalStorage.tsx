@@ -3,7 +3,7 @@ import { useState} from "react";
 import {Beer} from "../types";
 import {getExistingFavBeers} from "../views/BeerList/utils";
 
-export default function useBeerLocalStorage () {
+export function useBeerLocalStorage () {
 
 
     const [existingBeers, setExistingBeers] = useState(() => {
@@ -28,5 +28,11 @@ export default function useBeerLocalStorage () {
         return existingBeers.find(existingBeer => existingBeer.id === beer.id);
     }
 
-    return [addBeerInFavoriteList,  removeBeerFromFavoriteList, isBeerAlreadyFavorite];
+    const clearAllFavBeers = () => {
+        localStorage.setItem("favBeers", JSON.stringify([]));
+        setExistingBeers([]);
+    }
+
+
+    return {addBeerInFavoriteList,  removeBeerFromFavoriteList, isBeerAlreadyFavorite, clearAllFavBeers};
 }

@@ -12,7 +12,7 @@ import BeerPagination from "../../components/Pagination/BeerPagination";
 import BeerListFilter from "../../components/BeerListFilter/BeerListFilter";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import useBeerLocalStorage from "../../hooks/useBeerLocalStorage";
+import {useBeerLocalStorage} from "../../hooks/useBeerLocalStorage";
 
 const BeerList = () => {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ const BeerList = () => {
   const [sortType, setSortType] = useState<SORT>('asc');
   const [filterBeerListByText, setFilterBeerListByText] = useState<string>('');
   const [filterBeerListByType, setFilterBeerListByType] = useState<string | null>(null);
-  const [addBeerInFavoriteList, removeBeerFromFavoriteList, isBeerAlreadyFavorite] = useBeerLocalStorage();
+  const {addBeerInFavoriteList, removeBeerFromFavoriteList, isBeerAlreadyFavorite} = useBeerLocalStorage();
 
 
   useEffect(fetchBeerListMetaDataData.bind(this, setBeerListMetaData), []);
