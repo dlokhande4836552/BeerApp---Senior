@@ -25,4 +25,9 @@ type BeerListMetaData = {
   per_page: number
 }
 
-export type { Beer, BeerListMetaData };
+type BeerType = {
+  id: number,
+  label: string
+}
+
+export type { Beer, BeerListMetaData, BeerType };

@@ -1,11 +1,11 @@
 import {getBeerList, getBeerMetaData} from '../../api';
-import {ApiParams, Beer, BeerListMetaData, SORT} from '../../types';
+import {ApiParams, Beer, BeerListMetaData} from '../../types';
 import handle from '../../utils/error';
 
 const fetchBeerList = (setData: (data: Array<Beer>) => void, params: ApiParams) => {
   (async () => {
     try {
-      const response = await getBeerList({page: params.page, sort: params.sort});
+      const response = await getBeerList(params);
       setData(response.data);
     } catch (error) {
       handle(error);
@@ -13,15 +13,27 @@ const fetchBeerList = (setData: (data: Array<Beer>) => void, params: ApiParams) 
   })();
 };
 
-const fetchBeerListMetaDataData =  (setBeerListMetaData: (data: BeerListMetaData) => void, setTotalBeerCount: (value: number) => void) => {
+const fetchBeerListMetaDataData =  (setBeerListMetaData: (data: BeerListMetaData) => void) => {
     (async () => {
         try {
             const response = await  getBeerMetaData();
             setBeerListMetaData(response.data as BeerListMetaData);
-            setTotalBeerCount((response.data as BeerListMetaData).total);
         } catch (error) {
             handle(error);
         }
     })();
 };
-export { fetchBeerList, fetchBeerListMetaDataData };
+
+const getExistingFavBeers = () => {
+    const existingBeers1 = localStorage.getItem("favBeers");
+    if (existingBeers1 !== null) {
+        return JSON.parse(existingBeers1) as Beer[];
+    } else {
+        return [] as Beer[];
+    }
+}
+
+
+
+
+export { fetchBeerList, fetchBeerListMetaDataData, getExistingFavBeers};

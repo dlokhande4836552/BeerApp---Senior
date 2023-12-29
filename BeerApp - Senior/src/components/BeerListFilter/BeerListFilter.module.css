@@ -1,0 +1,4 @@
+.beerListFilter {
+    display: flex;
+    justify-content: space-between;
+}

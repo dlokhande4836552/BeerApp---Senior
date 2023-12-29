@@ -1,5 +1,5 @@
 type TYPE =
-  | 'micro'
+  'micro'
   | 'nano'
   | 'regional'
   | 'brewpub'
