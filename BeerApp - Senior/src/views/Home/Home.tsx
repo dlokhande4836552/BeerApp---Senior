@@ -3,10 +3,9 @@ import { Link as RouterLink } from "react-router-dom";
 import { Button, Checkbox, Paper, TextField, Link } from "@mui/material";
 import styles from "./Home.module.css";
 import FavBeers from "../../components/FavBeers/FavBeers";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getRandomBeerList } from "../../api";
 import CircularProgress from "@mui/material/CircularProgress";
-import handle from "../../utils/error";
 
 const Home = () => {
   const { data: beerList = [], isLoading } = useQuery({
@@ -18,6 +17,12 @@ const Home = () => {
       }),
   });
 
+  const queryClient = useQueryClient();
+
+  const onReloadListClick = async () => {
+    await queryClient.invalidateQueries({ queryKey: ["fetch-random-beers"] });
+  };
+
   return (
     <article>
       <section>
@@ -26,7 +31,9 @@ const Home = () => {
             <div className={styles.listContainer}>
               <div className={styles.listHeader}>
                 <TextField label="Filter..." variant="outlined" />
-                <Button variant="contained">Reload list</Button>
+                <Button variant="contained" onClick={() => onReloadListClick()}>
+                  Reload list
+                </Button>
               </div>
               <ul className={styles.list}>
                 {isLoading && <CircularProgress />}
