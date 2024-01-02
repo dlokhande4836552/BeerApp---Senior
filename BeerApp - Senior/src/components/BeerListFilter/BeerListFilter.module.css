@@ -1,4 +1,24 @@
-.beerListFilter {
+.header {
     display: flex;
     justify-content: space-between;
+
+    .headerTitle {
+        font-size: 25px;
+    }
+
+    .beerListFilter {
+        display: flex;
+        justify-content: flex-end;
+        padding-top: 20px;
+
+        .sort {
+            padding-top: 10px;
+        }
+
+        & div {
+            padding-right: 10px;
+        }
+    }
 }
+
+

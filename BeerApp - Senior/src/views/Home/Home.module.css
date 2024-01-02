@@ -1,5 +1,11 @@
 .list {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+
+  .listItem {
+    padding-top: 10px;
+  }
 }
 
 .listContainer {

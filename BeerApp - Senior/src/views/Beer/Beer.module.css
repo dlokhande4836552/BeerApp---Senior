@@ -1,0 +1,39 @@
+.beerInfo {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-size: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .type {
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .beerDetails {
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        margin: 10px;
+
+        .image {
+            border:1px dotted black;
+            text-align: center;
+            background-color: rgb(128, 128, 128);
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            padding: 50px;
+        }
+
+        .distilleryInfo {
+            padding-left: 100px;
+        }
+
+    }
+}

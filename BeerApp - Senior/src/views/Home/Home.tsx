@@ -38,8 +38,7 @@ const Home = () => {
               <ul className={styles.list}>
                 {isLoading && <CircularProgress />}
                 {beerList.map((beer, index) => (
-                  <li key={index.toString()}>
-                    <Checkbox />
+                  <li key={index.toString()} className={styles.listItem}>
                     <Link component={RouterLink} to={`/beers/${beer.id}`}>
                       {beer.name}
                     </Link>

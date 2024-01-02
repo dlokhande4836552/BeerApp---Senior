@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Beer } from "../types";
+import { LOCAL_STORAGE_KEY_FAV_BEER } from "../const/BeerConstants";
 
 export function useBeerLocalStorage() {
   const getExistingFavBeers = () => {
-    const existingBeers1 = localStorage.getItem("favBeers");
-    if (existingBeers1 !== null) {
-      return JSON.parse(existingBeers1) as Beer[];
+    const existingBeers = localStorage.getItem(LOCAL_STORAGE_KEY_FAV_BEER);
+    if (existingBeers !== null) {
+      return JSON.parse(existingBeers) as Beer[];
     } else {
       return [] as Beer[];
     }
@@ -16,7 +17,10 @@ export function useBeerLocalStorage() {
   });
 
   const addBeerInFavoriteList = (beer: Beer) => {
-    localStorage.setItem("favBeers", JSON.stringify([...existingBeers, beer]));
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY_FAV_BEER,
+      JSON.stringify([...existingBeers, beer]),
+    );
     setExistingBeers([...existingBeers, beer]);
   };
 
@@ -27,16 +31,19 @@ export function useBeerLocalStorage() {
     const newBeerList = existingBeers.filter(
       (existingBeer) => existingBeer.id !== beer.id,
     );
-    localStorage.setItem("favBeers", JSON.stringify(newBeerList));
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY_FAV_BEER,
+      JSON.stringify(newBeerList),
+    );
     setExistingBeers(newBeerList);
   };
 
-  const isBeerAlreadyFavorite = (beer: Beer): Beer | undefined => {
-    return existingBeers.find((existingBeer) => existingBeer.id === beer.id);
+  const isBeerAlreadyFavorite = (beer: Beer): boolean => {
+    return !!existingBeers.find((existingBeer) => existingBeer.id === beer.id);
   };
 
   const clearAllFavBeers = () => {
-    localStorage.setItem("favBeers", JSON.stringify([]));
+    localStorage.setItem(LOCAL_STORAGE_KEY_FAV_BEER, JSON.stringify([]));
     setExistingBeers([]);
   };
 
