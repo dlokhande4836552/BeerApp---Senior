@@ -1,0 +1,21 @@
+.favBeers {
+    padding: 20px;
+
+    .favBeerHeader {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .favBeerItem {
+        display: flex;
+        justify-content: flex-start;
+
+        .beerName {
+            padding-top: 10px;
+        }
+    }
+}
+
+
+

@@ -1,6 +1,6 @@
 import { Beer } from "../../types";
 import { Link as RouterLink } from "react-router-dom";
-import { Button, Checkbox, Paper, TextField, Link } from "@mui/material";
+import { Button, Paper, Link } from "@mui/material";
 import styles from "./Home.module.css";
 import FavBeers from "../../components/FavBeers/FavBeers";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
@@ -30,7 +30,8 @@ const Home = () => {
           <Paper>
             <div className={styles.listContainer}>
               <div className={styles.listHeader}>
-                <TextField label="Filter..." variant="outlined" />
+                <h3>Random beers</h3>
+                {/*<TextField label="Filter..." variant="outlined" />*/}
                 <Button variant="contained" onClick={() => onReloadListClick()}>
                   Reload list
                 </Button>

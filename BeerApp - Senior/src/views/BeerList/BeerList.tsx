@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import SportsBar from "@mui/icons-material/SportsBar";
 import { useNavigate } from "react-router-dom";
-import SortByAlphaIcon from "@mui/icons-material/SortByAlpha";
 import BeerPagination from "../../components/Pagination/BeerPagination";
 import BeerListFilter from "../../components/BeerListFilter/BeerListFilter";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
@@ -35,6 +34,7 @@ const BeerList = () => {
     isBeerAlreadyFavorite,
   } = useBeerLocalStorage();
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(fetchBeerListMetaDataData.bind(this, setBeerListMetaData), []);
 
   const isFilterOn = () => {
@@ -52,6 +52,7 @@ const BeerList = () => {
     } as ApiParams;
   };
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(fetchBeerList.bind(this, setBeerList, getParams()), [
     currentPage,
     sortType,
@@ -98,8 +99,9 @@ const BeerList = () => {
         </header>
         <main>
           <List>
-            {beerList.map((beer) => (
+            {beerList.map((beer, index) => (
               <ListItemButton key={beer.id}>
+                <span>{index + 1}</span>
                 <ListItemAvatar>
                   <Avatar>
                     <SportsBar />

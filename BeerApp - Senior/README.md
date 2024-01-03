@@ -9,3 +9,11 @@ We will discuss the proposed solution during the interview. You should be ready 
 - Home page favourites ~ add a list of favourite beers, do not clean after page reload
 - Beer list filtering + pagination + sorting
 - Progressive Web App, offline
+
+
+Steps to run the solution
+
+1. Checkout branch https://github.com/dlokhande4836552/BeerApp---Senior/tree/online-beer-shoppee
+2. Go to dir \BeerApp---Senior\BeerApp - Senior and install bpm package. (npm i)
+3. run local server. (npm start)
+4. http://localhost:3000 will showcase solution
