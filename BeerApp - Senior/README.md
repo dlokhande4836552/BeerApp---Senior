@@ -13,7 +13,8 @@ We will discuss the proposed solution during the interview. You should be ready 
 
 Steps to run the solution
 
-1. Checkout branch https://github.com/dlokhande4836552/BeerApp---Senior/tree/online-beer-shoppee
-2. Go to dir \BeerApp---Senior\BeerApp - Senior and install npm package. (npm i)
-3. run local server. (npm start)
-4. http://localhost:3000 will showcase the solution
+1. git clone https://github.com/dlokhande4836552/BeerApp---Senior.git
+2. git checkout online-beer-shoppee
+3. npm install
+4. npm start
+5. load http://localhost:3000 
