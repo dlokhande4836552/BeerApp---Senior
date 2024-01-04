@@ -14,6 +14,6 @@ We will discuss the proposed solution during the interview. You should be ready 
 Steps to run the solution
 
 1. Checkout branch https://github.com/dlokhande4836552/BeerApp---Senior/tree/online-beer-shoppee
-2. Go to dir \BeerApp---Senior\BeerApp - Senior and install bpm package. (npm i)
+2. Go to dir \BeerApp---Senior\BeerApp - Senior and install npm package. (npm i)
 3. run local server. (npm start)
-4. http://localhost:3000 will showcase solution
+4. http://localhost:3000 will showcase the solution
